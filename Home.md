@@ -6,7 +6,9 @@ pointers to books, code, existing projects, companies, etc.
 The goal of this project is to have a central repository of information about
 Game Programming in Haskell.
 
+* [[Introduction]]
 * [[Documentation]]
+* [[Examples]]
 * [[Games]]
 * [[People and Companies]]
 * [[Papers and Talks]]
