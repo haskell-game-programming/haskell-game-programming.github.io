@@ -23,8 +23,8 @@ surfaces, by cropping or copying them)<sup>**1**</sup>.
 
 ## The video surface
 
-In the first chapter, we saw that the video surface needs to be initialized,
-and that we can then start drawing or pasting other surfaces on it.  The
+In the first chapter we saw that the video surface needs to be initialized,
+and that we can then start drawing or pasting other surfaces on it. The
 following program creates a window, obtains its surface, and repeatedly paints
 it green.
 
@@ -54,14 +54,14 @@ main = do
 
 There is a few noticeable aspects:
 
-* As stated in the previous chapter, to work with surfaces we needed
+* As stated before, to work with surfaces we needed
 to initialize the video subsystem (SDL.init).
 
-* We created the window by setting the video mode (size, bits per pixel,
-  rendering options). We were also able to change its caption.
+* We create the window by setting the video mode (size, bits per pixel,
+  rendering options). We were also able to change the window's title (caption).
 
-* We needed a handle on the screen surface to paint it green.
-We obtained it directly from SDL.setVideoMode, but we could
+* We needed a handle on the screen surface to paint it.
+We obtained it directly from ```SDL.setVideoMode''', but we could
 have obtained the same one later from SDL.getVideoSurface.
 
 * We painted the screen green using a drawing primitive. Drawing
