@@ -61,7 +61,7 @@ to initialize the video subsystem (SDL.init).
   rendering options). We were also able to change the window's title (caption).
 
 * We needed a handle on the screen surface to paint it.
-We obtained it directly from ```SDL.setVideoMode''', but we could
+We obtained it directly from `SDL.setVideoMode`, but we could
 have obtained the same one later from SDL.getVideoSurface.
 
 * We painted the screen green using a drawing primitive. Drawing
