@@ -74,27 +74,26 @@ flickering.
 
 ---
 
-NOTE: In the good-old days, programmers would directly modify the area
-of the video memory that the video driver was reading from. As images were drawn
-progressively, the screen might show drawing operations
-as they took place. One could see see intermediate
-inconsistent visual states (part of the image coming from the old game state,
-and another coming from a newer game state).  This all lead to inconsistencies
-and unpleasant visual effects.
+NOTE: In the old days, programmers would directly modify the area of the video
+memory that the driver was reading from. As drawing operations took some time
+to complete, the screen would show them as they took place, pixel by pixel,
+which were inconsistent and visually unpleasant.
 
-Computers started including more video memory than what was
-really necessary to store one full-screen video image. Thus programmers could
-draw a new image in a part of the video memory that was not being presented
-yet, and later tell the driver to start showing a different part of the memory
-instead.  This lead to a technique called double-buffering (one buffer to
-render, another to draw). Newer games include also triple buffering, and
-they allow us to synchronize buffer switching with the monitor refresh
-rate (a technique called VSync). To appreciate the difference between
-all of these, see the following video:
+Newer computers included more video memory than
+necessary to store one full-screen video image. Programmers could
+then draw a new image in a part of the video memory that was not being
+presented, and later tell the driver to start showing a different part of the
+memory instead. This is called double buffering (one buffer
+for rendering, another for drawing). Newer games feature triple buffering, and
+also allow us to synchronize buffer switching with the monitor refresh rate
+(VSync). To appreciate the difference between all of these, see the following
+video:
 
+<p align="center">
 <a href="http://www.youtube.com/watch?feature=player_embedded&v=ekl9zR-T_6U"
 target="_blank"><img src="http://img.youtube.com/vi/ekl9zR-T_6U/0.jpg"
 alt="Double buffering, Triple buffering, and no vsync" width="240" height="180"
 border="10" /></a>
+</p>
 
 ---
