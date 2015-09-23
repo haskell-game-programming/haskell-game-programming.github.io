@@ -7,14 +7,16 @@ SDL introduces a concept of surface, which is like a page, or a part of a page,
 which may or may not have anything on it. Doing SDL animations from surfaces
 works almost like doing a collage:
 
+<div>
 <img align="left" src="http://orig14.deviantart.net/78e3/f/2007/266/9/9/magazine_collage_by_lizlovespink.jpg" width="320" style="margin-right: 10px">
+<div width="10px">
+</div>
+</div>
 
-<div style="margin-left: 5px;">
 You have one main surface (the window or the screen) and you start pasting
 other surfaces on top of it at different positions and with different
 orientations. Once you are done, your main surface will contain the combined
 image to be presented to users.
-</div>
 
 There are three kinds of surfaces in SDL: the screen surface (that is, a
 surface that will be used by the video driver to show whatever needs to be
