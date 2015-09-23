@@ -99,12 +99,12 @@ border="10" /></a>
 
 ---
 
-Footnotes
+## Footnotes
 
 1. The difference between a file surface and a software surface is quite
 arbitrary: it is just an area in memory that holds bytes. The difference only
 lies in how those two areas are created.
 
-References
+## References
 
 * [1] Image created by [lizlovespink](http://lizlovespink.deviantart.com/art/Magazine-Collage-65621965).
