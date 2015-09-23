@@ -191,6 +191,66 @@ The animation might speed up or slow down during gameplay, and it might run
 too fast in next-generation computers (something that happened to most
 80386 games when Pentiums came around).
 
+## Software surfaces
+
+Finally, we are going to see how to create a completely in-memory surface.
+These are useful when we need to pass a surface to an operation (for instance,
+as a white canvas to draw onto), and then blit that surface onto a larger
+surface at a given position.
+
+For instance, in a game, you might want to draw the game scene on a virtual
+surface, the game menu on another surface, and then blit them both in specific
+coordinates of the main video surface. This way, none of the sub-rendering
+functions needs to know about its position with respect to the parent surface.
+
+<!-- Could it be clearer with a drawing, or a code comparison? -->
+
+The following code creates two surfaces, draws two subparts of the UI in them,
+pastes them both in the main video surface, and then presents the main surface.
+
+### Homework
+
+* Create the following UI using the assets from TOBECOMPLETED
+and the code template from TOBECOMPLETED.
+
+### Notes
+
+* While it makes your code clearer, using software surfaces may be expensive.
+  If you abuse them, your code will run subtantially slower.
+
+# Drawing arbitrary shapes
+
+SDL allows you to draw primitive shapes onto the screen. Unlike surfaces, shapes
+are drawn directly without blitting them. The current Haskell bindings for SDL-gfx
+are less developed than the main project's bindings and use Word-based types.
+Nevertheless, they achieve their purpose. Let's draw a few figures on the screen.
+
+PLACE FOR A CODE EXAMPLE
+
+Drawing these shapes may be more tedious than using PNG files. While you can
+achieve aesthetically-pleasant effects and your UIs will be easily scalable if
+you draw shapes by hand using SDL-gfx, your game make take longer to develop.
+If you are not an experienced graphics programmer and designer, programming
+quality graphics may proof too difficult in the end. That is why most
+programmers use assets created by graphics designers in some graphic format.
+
+Always keep in mind that the end goal is to complete a fun game, and that
+nobody will care if your game was prefectly scalable if you never released it.
+
+### Homework
+
+To be completed
+
+# Transforming images
+
+To complete this chapter on SDL graphics, we are going to see how to manipulate
+images. You can perform a few transformations, namely rotations, flipping, etc.
+
+The following code example should make it clear how these transformations
+work.
+
+TO BE COMPLETED
+
 ## Footnotes
 
 1. The difference between a file surface and a software surface is quite
