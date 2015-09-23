@@ -29,7 +29,8 @@ following program creates a window, obtains its surface, and repeatedly paints
 it green.
 
 ``` haskell
-import Graphics.UI.SDL
+import Control.Monad   (forever)
+import Graphics.UI.SDL as SDL
 
 main :: IO ()
 main = do
@@ -37,7 +38,7 @@ main = do
   SDL.init [InitVideo]
 
   -- Configuration
-  screen <- SDL.setVideoMode width height bpp [SWSurface]
+  screen <- SDL.setVideoMode 480 320 32 [SWSurface]
   SDL.setCaption "Test" ""
 
   forever $ do
@@ -98,6 +99,98 @@ border="10" /></a>
 </p>
 
 ---
+
+### Exercises
+
+* Change the program so that the screen is drawn red.
+
+* Change the program so that the screen is drawn only the first time, then loop
+ forever doing nothing (`return ()`). What happens then?
+
+* Change the program so that the screen is drawn once, but do not flip the
+video surface (double buffering) and then loop forever doing nothing. What
+happens then?
+
+* The second parameter to SDL.fillRect is a `Maybe SDL.Rect`. If it is
+* `Nothing`,
+the whole surface is filled. If it is `Just` a `Rect`, then only the area
+specified by the rectangle is filled. `Rect` has four arguments the first two
+are the coordinates of the rectangle's corner, and the other two are its size.
+Change the program to draw a red rectangle in the middle of a completely green
+surface.
+
+**  Are the coordinates of the rectangle specified from the center of the video
+surface, from the top-left corner, from the bottom-left corner, or from some
+other position?
+
+** What happens if you paint an area that is bigger than the surface, or partially
+out of it?
+
+## Loading and pasting files
+
+Loading image files could not be easier in SDL. The primitive `SDL.Image.load`
+from the package `SDL-image` does all the work for us. It guesses the format
+based on the extension, and gives us a surface that contains the image already.
+We can use that handle to paste the image onto the video surface. Note that
+we need to obtain the surface size and specify the position on which we want
+to paste the image.
+
+```
+import Control.Monad         (forever)
+import Graphics.UI.SDL       as SDL
+import Graphics.UI.SDL.Image as SDL
+
+main :: IO ()
+main = do
+  -- Initialization
+  SDL.init [InitVideo]
+
+  -- NEW: load image
+  image <- SDL.load "bunny1_jump.png"
+  let imgWidth  = surfaceWidth  image
+      imgHeight = surfaceHeight image
+
+  -- Configuration
+  screen <- SDL.setVideoMode 480 320 32 [SWSurface]
+  SDL.setCaption "Test" ""
+
+  forever $ do
+    -- You can also do this here to get the main video surface
+    -- screen <- SDL.getVideoSurface
+
+    let format = SDL.surfaceGetPixelFormat screen
+    green <- SDL.mapRGB format 0 0xFF 0
+    SDL.fillRect screen Nothing green
+
+    -- NEW: Paste the image surface onto the gree background
+    SDL.blitSurface screen Nothing image (Just (Rect 30 30 imgWidth imgHeight))
+
+    -- Double buffering
+    SDL.flip screen
+```
+
+### Homework
+
+* Copy a bunny onto each corner of the video surface. Change the default size
+of 480x320 pixels and check that the bunnies are still being shown in the corners
+of the screen.
+
+* What happens if you resize the window?
+
+* Load two images instead of one. Move the rendering code in the do block to a
+separate function that receives both images as a parameter, and has a third
+`Int` parameter. Make that function call itself after rendering each frame,
+increasing the value up to 512 and then going back to 0. Make the function
+blit the first image if the argument is lower than 256, and the second if the
+argument is between 256 and 512.
+
+### Notes
+
+* We have not seen how to handle time yet. This way of producing animations
+is suboptimal because the speed of the animation depends on CPU speed and load.
+The animation might speed up or slow down during gameplay, and it might run
+too fast in next-generation computers (something that happened to most
+80386 games when Pentiums came around).
 
 ## Footnotes
 
