@@ -5,7 +5,7 @@ drawing, and image transformation.
 
 SDL introduces a concept of surface, which is like a page, or a part of a page,
 which may or may not have anything on it. Doing SDL animations from surfaces
-works almost like doing a collage:
+works almost like doing a collage<sup>[1]</sup>:
 
 <p align="center">
 <img src="http://orig14.deviantart.net/78e3/f/2007/266/9/9/magazine_collage_by_lizlovespink.jpg" width="320">
@@ -104,3 +104,7 @@ Footnotes
 1. The difference between a file surface and a software surface is quite
 arbitrary: it is just an area in memory that holds bytes. The difference only
 lies in how those two areas are created.
+
+References
+
+* [1] Image created by [lizlovespink](http://lizlovespink.deviantart.com/art/Magazine-Collage-65621965).
