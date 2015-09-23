@@ -288,3 +288,7 @@ gameLoop c gs = do
   -- Loop
   gameLoop c' gs'
 ```
+
+## Homework
+
+To be completed
