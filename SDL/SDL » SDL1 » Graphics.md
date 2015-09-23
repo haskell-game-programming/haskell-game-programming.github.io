@@ -112,12 +112,11 @@ video surface (double buffering) and then loop forever doing nothing. What
 happens then?
 
 * The second parameter to SDL.fillRect is a `Maybe SDL.Rect`. If it is
-* `Nothing`,
-the whole surface is filled. If it is `Just` a `Rect`, then only the area
-specified by the rectangle is filled. `Rect` has four arguments the first two
-are the coordinates of the rectangle's corner, and the other two are its size.
-Change the program to draw a red rectangle in the middle of a completely green
-surface.
+  `Nothing`, the whole surface is filled with the given color. If it is `Just`
+  a `Rect`, then only the area specified by the rectangle is filled. `Rect` has
+  four arguments the first two are the coordinates of the rectangle's corner, and
+  the other two are its size.  Change the program to draw a red rectangle in the
+  middle of a completely green surface.
 
    * Are the coordinates of the rectangle specified from the center of the video
      surface, from the top-left corner, from the bottom-left corner, or from some
