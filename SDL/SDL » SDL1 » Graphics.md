@@ -51,17 +51,21 @@ main = do
     SDL.flip screen
 ```
 
-This program creates a new window whose background is green. There is
-a few noticeable aspects:
+There is a few noticeable aspects:
+
 * As stated in the previous chapter, to work with surfaces we needed
-to initialize the video subsystem.
-* We created the window by setting the video mode. We were also
-able to change its caption.
+to initialize the video subsystem (SDL.init).
+
+* We created the window by setting the video mode (size, bits per pixel,
+  rendering options). We were also able to change its caption.
+
 * We needed a handle on the screen surface to paint it green.
 We obtained it directly from SDL.setVideoMode, but we could
 have obtained the same one later from SDL.getVideoSurface.
+
 * We painted the screen green using a drawing primitive. Drawing
 primitives will be explained later on.
+
 * To actually render the surface on the screen, we need to flip it,
 that is, to tell SDL that it's ready to be used. That is because
 SDL implements something called double buffering, in which
