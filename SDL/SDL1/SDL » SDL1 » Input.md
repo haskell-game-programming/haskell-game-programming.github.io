@@ -89,13 +89,11 @@ gameLoop c = do
 
 render :: Controller -> IO ()
 render controller = do
-
-  -- Render
   screen <- getVideoSurface
-  let format = SDL.surfaceGetPixelFormat screen
-  green <- SDL.mapRGB format 0 0xFF 0
 
   -- 1) Green background
+  let format = SDL.surfaceGetPixelFormat screen
+  green <- SDL.mapRGB format 0 0xFF 0
   SDL.fillRect screen Nothing green
 
   -- 2) Gun
