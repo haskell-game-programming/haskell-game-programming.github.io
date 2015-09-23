@@ -1,5 +1,5 @@
-SDL graphics can be subdivided in four subchapters: surfaces, image handling,
-drawing, and image transformation.
+SDL graphics can be subdivided in four subchapters: surfaces and image handling,
+text rendering, drawing, and image transformation.
 
 # Surfaces
 
@@ -217,6 +217,19 @@ and the code template from TOBECOMPLETED.
 
 * While it makes your code clearer, using software surfaces may be expensive.
   If you abuse them, your code will run subtantially slower.
+
+# Rendering text
+
+## Loading fonts
+
+## Rendering text
+
+## Font effects
+
+## Notes
+
+* Text rendering is expensive. In your games, if the same text is being
+  rendered often, consider caching the surface and just blitting it.
 
 # Drawing arbitrary shapes
 
