@@ -26,9 +26,12 @@ main :: IO ()
 main = do
   -- Initialization
   SDL.init [InitVideo, InitInput]
+
+  -- Configuration
   screen <- setVideoMode width height bpp [SWSurface]
   setCaption "Test" ""
 
+  -- Loop forever
   gameloop 0
 
 gameLoop :: Int -> IO ()
@@ -76,7 +79,7 @@ render state = do
     fillRect screen Nothing color
     -- 4) Present screen
     SDL.flip screen
-'''
+```
 
 You are not expected to understand that code, only to take a quick look and try
 to follow it's logic. The important ideas to take away are:
