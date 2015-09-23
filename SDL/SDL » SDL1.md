@@ -31,8 +31,8 @@ written a fun and good-looking Haskell game using SDL 1.2.
 
 * [A first example in SDL](SDL » SDL1 » Introduction)
 * [Graphics in SDL](SDL » SDL1 » Graphics)
-* Maybe: [Time in SDL](SDL » SDL1 » Time)
 * [Input in SDL](SDL » SDL1 » Input)
+* [Time in SDL](SDL » SDL1 » Time)
 * [Audio in SDL](SDL » SDL1 » Audio)
 * Maybe: Networking?
 * [Resources](SDL » SDL1 » Resources)
