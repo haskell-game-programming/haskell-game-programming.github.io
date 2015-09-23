@@ -72,11 +72,12 @@ SDL implements something called double buffering, in which
 a surface is drawn offline and presented all at once to avoid
 flickering.
 
-NOTE: In the good-old days, programmers would modify the area
-of the video memory that the video output was reading to draw
-directly. Video was rendered progressively, which mean that
-the screen might be progressively showing drawing operations
-as they took place. This also meant that one might be able to see intermediate
+---
+
+NOTE: In the good-old days, programmers would directly modify the area
+of the video memory that the video driver was reading from. As images were drawn
+progressively, the screen might show drawing operations
+as they took place. One could see see intermediate
 inconsistent visual states (part of the image coming from the old game state,
 and another coming from a newer game state).  This all lead to inconsistencies
 and unpleasant visual effects.
@@ -95,3 +96,5 @@ all of these, see the following video:
 target="_blank"><img src="http://img.youtube.com/vi/ekl9zR-T_6U/0.jpg"
 alt="Double buffering, Triple buffering, and no vsync" width="240" height="180"
 border="10" /></a>
+
+---
