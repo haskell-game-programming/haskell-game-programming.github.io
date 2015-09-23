@@ -19,7 +19,7 @@ There are three kinds of surfaces in SDL: the screen surface (that is, a
 surface that will be used by the video driver to show whatever needs to be
 shown), file surfaces (in-memory surfaces created by loading images from PNG,
 JPG, etc. files), and virtual surfaces (in-memory surfaces created from other
-surfaces, by cropping or copying them)<sup>1</sup>
+surfaces, by cropping or copying them)<sup>**1**</sup>.
 
 ## The video surface
 
