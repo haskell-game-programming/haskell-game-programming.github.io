@@ -179,9 +179,9 @@ of the screen.
 * Load two images instead of one. Move the rendering code in the do block to a
 separate function that receives both images as a parameter, and has a third
 `Int` parameter. Make that function call itself after rendering each frame,
-increasing the value up to 512 and then going back to 0. Make the function
-blit the first image if the argument is lower than 256, and the second if the
-argument is between 256 and 512.
+increasing the value in one unit every time, up to 512 and then going back to
+0. Make the function blit the first image if the argument is lower than 256,
+and the second if the argument is between 256 and 512.
 
 ### Notes
 
