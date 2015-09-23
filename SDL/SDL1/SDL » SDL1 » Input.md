@@ -106,8 +106,10 @@ render controller = do
 As you can see, our game loop calls `updateController`, but otherwise it is
 completely input-agnostic and knows nothing about SDL events. You could even
 use a completly different input mechanism and `gameLoop` would remain unchanged.
-This kind of modularity is extremely important in software, and games are no
-exception.
+This kind of modularity and separation of concerns is extremely important in
+software, and games are no exception. In real games, our input will most
+likely be configurable, which will mean that there will even be an extra layer of
+abstraction between the Controller and SDL.
 
 ## Keyboard events
 
