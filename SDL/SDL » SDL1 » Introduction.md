@@ -62,21 +62,22 @@ detectSpaceDown = do
 -- Paint screen according to program state
 render :: Int -> IO ()
 render state = do
-    -- Paint screen green
-    -- 1) Obtain colors
+    -- 1) Get screen handle
     screen <- getVideoSurface
+
+    -- 2) Choose color to paint
     let format = surfaceGetPixelFormat screen
     green <- mapRGB format 0 0xFF 0
     red   <- mapRGB format 0xFF 0 0
     blue  <- mapRGB format 0    0 0xFF
-
-    -- 2) Choose color to paint
     let color = case state `div` 256 of
                   0 -> green
                   1 -> red
                   2 -> blue
+
     -- 3) Fill screen in
     fillRect screen Nothing color
+
     -- 4) Present screen
     SDL.flip screen
 ```
@@ -86,9 +87,8 @@ to follow it's logic. The important ideas to take away are:
 
 * The SDL subsystems that you are going to use need to be initialized (function main)
 
-* That you may need to keep handles to different entities (screen, colors,
-* images, events, audio chunks, etc.)
-to use them later on.
+* You may need to keep handles to different entities (screen, colors,
+  images, events, audio chunks, etc.) to use them later on.
 
 * SDL works at a relatively low level, and it's mostly imperative (IO). Even
   functions to obtain colors (mapRGB) are monadic.
