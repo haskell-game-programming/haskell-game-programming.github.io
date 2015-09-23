@@ -119,12 +119,12 @@ are the coordinates of the rectangle's corner, and the other two are its size.
 Change the program to draw a red rectangle in the middle of a completely green
 surface.
 
-**  Are the coordinates of the rectangle specified from the center of the video
-surface, from the top-left corner, from the bottom-left corner, or from some
-other position?
-
-** What happens if you paint an area that is bigger than the surface, or partially
-out of it?
+   * Are the coordinates of the rectangle specified from the center of the video
+     surface, from the top-left corner, from the bottom-left corner, or from some
+     other position?
+  
+   * What happens if you paint an area that is bigger than the surface, or partially
+     out of it?
 
 ## Loading and pasting files
 
