@@ -196,6 +196,7 @@ defaultController = Controller False False False False False
 
 Our controller sensing function is now a bit simpler, although more verbose:
 
+``` haskell
 -- SDL controller-updating function
 updateController :: Controller -> IO Controller
 updateController c = do
