@@ -127,14 +127,14 @@ happens then?
 
 ## Loading and pasting files
 
-Loading image files could not be easier in SDL. The primitive `SDL.Image.load`
+Loading image files could not be easier in SDL. The function `SDL.Image.load`
 from the package `SDL-image` does all the work for us. It guesses the format
 based on the extension, and gives us a surface that contains the image already.
 We can use that handle to paste the image onto the video surface. Note that
 we need to obtain the surface size and specify the position on which we want
 to paste the image.
 
-```
+``` haskell
 import Control.Monad         (forever)
 import Graphics.UI.SDL       as SDL
 import Graphics.UI.SDL.Image as SDL
