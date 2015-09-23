@@ -29,7 +29,7 @@ written a fun and good-looking Haskell game using SDL 1.2.
 
 # Table of Contents
 
-* [A first example in SDL](SDL » SDL1 » Time)
+* [A first example in SDL](SDL » SDL1 » Introduction)
 * [Graphics in SDL](SDL » SDL1 » Graphics)
 * Maybe: [Time in SDL](SDL » SDL1 » Time)
 * [Input in SDL](SDL » SDL1 » Input)
