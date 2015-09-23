@@ -222,13 +222,22 @@ updateController c = do
       updateController c  -- Discard any other event
 ```
 
-We now need a function to keep and update the game state, which we do as follows:
+Our game will now hold the position of the gun and whether it is being fired
+in an internal game state:
 ``` haskell
 data GameState = GameState
   { gsGamePos  :: (Int, Int)
   , gsGameFire :: Bool
   }
+```
 
+The game state now needs to be updated from the previous state, and the state
+of the controller. We turn every controller button into a vector with the
+displacement to be applied, and then we add all those vectors to the previous
+position.  We use a slightly modified version of `withinScreenBoundaries` to
+ensure that our player is always in the screen.
+
+``` haskell
 updateGameLogic :: Controller -> GameState -> GameState
 updateGameLogic c gs = gs'
  where gs' = gs { gsGameFire = gunFire c
