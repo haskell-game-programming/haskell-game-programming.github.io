@@ -29,9 +29,14 @@ written a fun and good-looking Haskell game using SDL 1.2.
 
 # Table of Contents
 
-* Initialization, running and freeing resources.
-* Graphics in SDL
-* Input in SDL
-* Audio in SDL
-* Summary
+* [A first example in SDL](SDL » SDL1 » Time)
+* [Graphics in SDL](SDL » SDL1 » Graphics)
+* Maybe: [Time in SDL](SDL » SDL1 » Time)
+* [Input in SDL](SDL » SDL1 » Input)
+* [Audio in SDL](SDL » SDL1 » Audio)
+* Maybe: Networking?
+* [Resources](SDL » SDL1 » Resources)
+* [Summary](SDL » SDL1 » Summary)
+* [A Game in SDL](SDL » SDL1 » Summary)
 * Annex: Installation on different platforms
+* Annex: Haskell quirks using SDL
