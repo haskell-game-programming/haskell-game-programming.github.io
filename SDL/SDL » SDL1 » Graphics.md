@@ -8,8 +8,8 @@ which may or may not have anything on it. Doing SDL animations from surfaces
 works almost like doing a collage:
 
 <div>
-<img src="http://orig14.deviantart.net/78e3/f/2007/266/9/9/magazine_collage_by_lizlovespink.jpg" width="320" style="margin-right: 10px">
-<div width="10px">
+<img align="left" src="http://orig14.deviantart.net/78e3/f/2007/266/9/9/magazine_collage_by_lizlovespink.jpg" width="320" style="margin-right: 10px">
+<div align="left" width="10px">
 &nbsp;
 </div>
 </div>
