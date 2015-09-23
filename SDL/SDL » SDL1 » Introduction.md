@@ -28,8 +28,8 @@ main = do
   SDL.init [InitVideo, InitInput]
 
   -- Configuration
-  screen <- setVideoMode width height bpp [SWSurface]
-  setCaption "Test" ""
+  SDL.setVideoMode width height bpp [SWSurface]
+  SDL.setCaption "Test" ""
 
   -- Loop forever
   gameloop 0
@@ -53,7 +53,7 @@ gameLoop n = do
 -- if any event was spacebar down, False otherwise
 detectSpaceDown :: IO ()
 detectSpaceDown = do
-  userEvent <- pollEvent
+  userEvent <- SDL.pollEvent
   case userEvent of
     NoEvent                                  -> return False
     KeyDown (Keysym { symKey = SDLK_SPACE }) -> detectSpaceDown >> return True
@@ -63,20 +63,20 @@ detectSpaceDown = do
 render :: Int -> IO ()
 render state = do
     -- 1) Get screen handle
-    screen <- getVideoSurface
+    screen <- SDL.getVideoSurface
 
     -- 2) Choose color to paint
-    let format = surfaceGetPixelFormat screen
-    green <- mapRGB format 0 0xFF 0
-    red   <- mapRGB format 0xFF 0 0
-    blue  <- mapRGB format 0    0 0xFF
+    let format = SDL.surfaceGetPixelFormat screen
+    green <- SDL.mapRGB format 0 0xFF 0
+    red   <- SDL.mapRGB format 0xFF 0 0
+    blue  <- SDL.mapRGB format 0    0 0xFF
     let color = case state `div` 256 of
                   0 -> green
                   1 -> red
                   2 -> blue
 
     -- 3) Fill screen in
-    fillRect screen Nothing color
+    SDL.fillRect screen Nothing color
 
     -- 4) Present screen
     SDL.flip screen
