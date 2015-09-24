@@ -232,8 +232,8 @@ Haskell's memory manager "think" that the values may still be used.
 * Write a program that plays the same sound (for 1 second) every 5 seconds.
 
 * Use `getTicks` from the time lesson to measure the number of milliseconds
-  that loading the WAV file takes. Think how to prevent that delay in games
-  in which the same sound is being played over and over.
+  that loading the WAV file takes. Think about how to prevent that delay in
+  games in which the same sound is being played over and over.
 
 * Modify the parameters to `playChannel`. The first parameter is the specific
   channel to use (-1 means *automatic*). The third parameter is the number
