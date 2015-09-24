@@ -29,11 +29,11 @@ Foreground music works in five steps:
 * Start playing the audio.
 * Keep playing until the sound is over (introduce a delay).
 
-The question is then, why a fifth step? The answer is not immediately obvious:
-but it has to do with the fact that your game will continue executing
-immediately after you start playing the audio, and how Haskell manages memory.
-To understand it fully, let's review the following program, which loads and
-plays a WAVE file:
+The first four steps are almost obvious, but why the fifth step? The answer is
+not trivial, and it has to do with the fact that your game will
+continue executing immediately after you start playing the audio, and how
+Haskell manages memory.  To understand it fully, let's review the following
+program, which loads and plays a WAVE file:
 
 ``` haskell
 import qualified Graphics.UI.SDL.Mixer.General  as SDL.Mixer
