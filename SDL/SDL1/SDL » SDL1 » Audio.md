@@ -148,7 +148,9 @@ main = do
   SDL.Mixer.Channels.allocateChannels 16
   wave <- SDL.Mixer.Samples.loadWAV "file.wav"
   SDL.Mixer.Channels.playChannel (-1) wave 0
-  
+```
+**
+``` haskell
   -- Wait for a while (cpu-consuming loop)
   mapM_ (\_ -> return ()) [1..10000000]
 
@@ -156,6 +158,7 @@ main = do
 
   return ()
 ```
+**
 
 If you want `playChannel` to still be asynchronous, one relatively
 simple way is as follows:
