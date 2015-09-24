@@ -220,8 +220,8 @@ one lap per second (even if the animation is slightly jumpy).
 
 * Modify the program above to also report the FPS.
 
-* Modify the program above to adjust the delay to try to match a specific
-number of frames per second.
+* Modify the program above introducing a delay to try to match a specific
+  number of frames per second.
 
 # Time-dependent behaviours
 
