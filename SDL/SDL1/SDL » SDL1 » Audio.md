@@ -232,6 +232,73 @@ Haskell's memory manager "think" that the values may still be used.
   that loading the WAV file takes. Think how to prevent that delay in games
   in which the same sound is being played over and over.
 
+* Modify the parameters to `playChannel`. The first parameter is the specific
+  channel to use (-1 means *automatic*). The third parameter is the number
+  of times to replay the file (-1 means *loop forever*, 0 means *play only
+  once*, 1 means *play twice*, etc.). What happens if you try to play
+  two files simultaneously over the same channel?
+
+* The function `Graphics.UI.SDL.Mixer.volumeChunk` allows you to change
+  the volume of a file you have loaded. Use to to play the file louder.
+  What happens if you change the volume of a chunk that is currently
+  playing?
+
+* The function `playChannel` returns the number of the channel where
+  the sound is being played. The function `isChannelPlaying` allows you
+  to test whether a channel is currently playing. Modify the program above
+  and use that function to keep the running thread after calling `forkOS`
+  running until the sound has finished playing (*note, however, that
+  the implementation may not know whether a different sound has started
+  playing on the same channel*). 
+
+* The SDL audio implementation includes functions to perform basic audio
+  transformations and manipulations over channels. In particular, you can:
+  * Check the status of a channel.
+  * Stop, resume and completely halt a channel.
+  * Change the volume.
+  * Create a Fade in effect (increasing the volume progressively) and
+    a fade it out effect.
+
+  As a big homework project, I suggest the following:
+
+  Create a program that implements a music player:
+
+  * At the beginning, load a specific song in WAV format. Start playing it
+    in a channel indefinitely and keep the channel number. Although obviously
+    not recommended in real games, feel free to hard-code both the file name and
+    the channel number.
+
+  * Create a controller with the following actions: play/pause, fade in, fade
+    out, volume up, volume down. 
+
+  * Map 5 key-down events of your choice to these five controller actions.
+    At every input event detection loop, start with a controller with
+    every key off, and detect which in the current loop have been activated.
+
+  * At every game loop iteration, apply to the channel the actions that
+    the user has selected.
+
+  * Remember to use `touchForeignPtr` after your game loop to ensure that
+    your chunk is not freed during execution.
+
+  * Aim at simplicity. Get away with no interface if you can. We will
+    try to put graphics, time, input and audio together in future lessons. If
+    you try to be too ambitious here, you may end up not implementing anything at
+    all. Keep things simple. Instead of trying to do too much, review your code
+    once it works to try to modularise it, clean it, separate concepts, and
+    keep clear abstraction layers between input events (SDL land), input actions
+    (application logic), app progression, and output (SDL land).
+
+## Contribute
+
+* The SDL-mixer bindings are partially incomplete. They lack both documentation
+  and bindings to auxiliary functions. If you want to contribute to the Haskell
+  Game Programming project, I suggest you navigate the bindings and add Haddock
+  documentation. If, additionally, you have knowledge of FFI, then you may also
+  want to complete (some of) the missing functions. In particular, functions
+  to work with chunks are mostly missing.
+
+
 # Background music
 
 To be completed.
