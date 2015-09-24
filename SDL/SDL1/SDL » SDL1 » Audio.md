@@ -221,7 +221,10 @@ Haskell's memory manager "think" that the values may still be used.
   What happens?
 
 * Create a program that plays the same sound twice with a minimal delay,
-  so that the overlap for a little while.
+  trying to get them to overlap for a little while. Are they both played one
+  over the other? Does the second substitute the first? `playChannel` returns
+  the channel in which each chunk is being played. Are both effectively being
+  played on the same channel? Does the second call return an error code (-1)?
 
 * Using the program that plays two sounds with a small overlap, decrease the
   number of allocated channels to 1 and run it again. What happens?
