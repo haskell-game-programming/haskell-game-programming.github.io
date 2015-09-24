@@ -53,7 +53,7 @@ main = do
 Compile and run this example and you will see that nothing is played. The
 program finishes immediately. To continue playing at least once, introduce an
 artificial delay. However, not any kind of delay works. For instance, the following
-two programs will likely play the file:
+program will likely play the file:
 
 ``` haskell
 import           Control.Concurrent
