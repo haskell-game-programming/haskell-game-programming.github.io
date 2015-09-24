@@ -27,9 +27,61 @@ only introduce the main two functions.
 ## Detecting current time
 
 Detecting the current time is essential to provide realistic animations and
-physics.
+physics. 
 
-PLACE FOR "A VISUAL EXAMPLE
+PLACE FOR A VISUAL EXAMPLE
+
+SDL counts the number of milliseconds since the initialisation. The following example
+should be straightforward to understand:
+
+````haskell
+import Control.Monad   (forever)
+import Graphics.IO.SDL as SDL
+
+main :: IO ()
+main = do
+  SDL.Init [InitAll]
+  screen <- SDL.setVideoMode 480 320 32 [SWSurface]
+  forever $ do
+    let format = surfaceGetPixelFormat screen
+    green <- SDL.mapRGB format 0 0xFF 0
+    SDL.fillRect screen Nothing green
+
+    -- NEW
+    n <- SDL.getTicks
+    putStrLn n
+```
+
+The first part of this example is the same in the first lesson. The second part illustrates
+how to get the number of milliseconds (an Int).
+
+A common calculation is to report the number of frames per second (or time per frame):
+````haskell
+import Control.Monad   (forever)
+import Graphics.IO.SDL as SDL
+
+main :: IO ()
+main = do
+  SDL.Init [InitAll]
+  screen <- SDL.setVideoMode 480 320 32 [SWSurface]
+
+  n <- getTicks
+  render n 0
+
+render :: Int -> Int -> IO ()
+render lastTime numFrames = do
+    let format = surfaceGetPixelFormat screen
+    green <- SDL.mapRGB format 0 0xFF 0
+    SDL.fillRect screen Nothing green
+
+    -- NEW: report FPS every second
+    newTime <- SDL.getTicks
+    if newTime > lastTime + 1000
+      then do putStrLn (fromIntegral (newTime - lastTime)) / fromIntegral numFrames)
+              render newTime 0
+      else render lastTime (numFrames + 1)
+```
+  
 
 ## Delaying the game loop
 
