@@ -24,7 +24,7 @@ test your music.
 
 Foreground music works in five steps:
 * Initialize the audio subsystem (once).
-* Open a channel to play music.
+* Allocate a number of channels to play music (one sound will be played per channel).
 * Load your audio file.
 * Start playing the audio.
 * Keep playing until the sound is over (introduce a delay).
