@@ -1,7 +1,7 @@
 SDL (Simple DirectMedia Layer) is a library that provides an abstraction
 over hardware and facilitates writing multimedia.
 
-SDL provides an abstraction to create drawing areas, draw and manipulate
+SDL lets you create create windows and drawing areas, draw and manipulate
 pictures, paint images from files, play audio, communicate over the network,
 and interact with input devices.
 
