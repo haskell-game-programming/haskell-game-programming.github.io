@@ -305,3 +305,9 @@ Haskell's memory manager "think" that the values may still be used.
 # Background music
 
 To be completed.
+
+<video preload="metadata"> <!-- https://bugzilla.mozilla.org/show_bug.cgi?id=676422 -->
+    <source src="http://html5demos.com/assets/dizzy.mp4" type="video/mp4" />
+    <source src="http://html5demos.com/assets/dizzy.webm" type="video/webm" />
+    <source src="http://html5demos.com/assets/dizzy.ogv" type="video/ogg" />
+  </video>
