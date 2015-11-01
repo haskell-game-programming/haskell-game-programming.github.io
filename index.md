@@ -1,5 +1,5 @@
 ---
 title: Document Center
 redirect_to:
-  - http://keera-studios.github.io
+  - http://github.com/keera-studios/haskell-game-programming
 ---
