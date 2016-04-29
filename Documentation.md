@@ -2,7 +2,7 @@
 
 Low-level game programming in Haskell is done via bindings (Haskell
 libraries that provide access to other libraries, often written in
-C or C++). 
+C or C++).
 
 * [SDL 1.2](SDL » SDL1)
 * [[SDL2]]
@@ -26,4 +26,4 @@ C or C++).
 
 # Haskell specifics
 
-# 
+#
