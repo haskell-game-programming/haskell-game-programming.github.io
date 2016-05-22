@@ -195,14 +195,7 @@ dollar2GBPExchangeRate (time + year 1)
                       </ul>
                       <br />
                       <br />
-                      Careful with Monads and IO! Signals like mouseposition hide a monadic action.
-                  </section>
-                  <section>
-                    Current implementations sit somewhere in between
-                    <ul>
-                      <li>You can't poll signals at arbitrary times.
-                      <li>You can remember their values, with some constraints:
-                    </ul>
+                      Careful with Monads and IO! Signals like mousePosition hide a monadic action.
                   </section>
                  <section>
                    <h2>Yampa</h2>
@@ -232,12 +225,46 @@ main = reactimate sense render ballAroundMousePos
                    <!-- Main starting point: <a href="http://bit.ly/20KZMv0">bit.ly/20KZMv0 (github)</a> -->
                  </section>
                  <section>
-                   <h3>Current problems we are researching</h3>
+                   <h2>Yampa (2)</h2>
+                   <ul>
+                     <li>SFs can "remember" the past</li>
+                   </ul>
+                    <pre><code data-trim contenteditable>
+-- Part of Yampa library
+loopPre :: c -> SF (a, c) (b, c) -> SF a b
+
+-- We can write
+lastValue = 0 (proc (new, last) -> (last, new)
+
+-- Also:
+
+integral   :: Floating a => SF a a
+derivative :: Floating a => SF a a
+                    </code></pre>
+                    <img src="loopPre.png" width="50%" >
+                   <!-- Main starting point: <a href="http://bit.ly/20KZMv0">bit.ly/20KZMv0 (github)</a> -->
+                 </section>
+                 <section>
+                   <h3>Current Research Problems (at University of Nottingham)</h3>
                    <ul>
                      <li>Extending SFs with monads for <i>controlled effects</i>.</li>
                      <li>Passing value differences along with absolute values.</li>
                      <li>Testing in FRP.</li>
                    </ul>
+                 </section>
+                 <section>
+                   <h3>Monadic Arrowized FRP</h3>
+                   <ul>
+                     <li>Time: Reader monad with the time in the environment.</li>
+                     <li>Discrete and continuous FRP.</li>
+                     <li>Termination: Maybe monad.</li>
+                     <li>Multiple times: list monad.</li>
+                     <li>Perfect collisions: (NextTimeToLookAt, a) monad.</li>
+                   </ul>
+                   <br />
+                   <br />
+                   <br />
+                   <center>(paper coming your way)</center>
                  </section>
                  <section>
                    <h3>Testing</h3>
@@ -249,8 +276,11 @@ main = reactimate sense render ballAroundMousePos
                       <li>Temporal Predicate = Signal Bool</li>
                       <li>We are proving game properties, and quickcheck finds bugs for us</li>
                       <li>Games produce traces that we can run offline, on different phones</li>
-                      <li>(paper coming your way)</li>
                    </ul>
+                   <br />
+                   <br />
+                   <br />
+                   <center>(paper coming your way)</center>
                  </section>
                 </section>
                  <!--section>
@@ -258,9 +288,9 @@ main = reactimate sense render ballAroundMousePos
                     <img src="nikki.png" width="50%" >
                  </section-->
                 <section>
-                 <section>
                    <h2>Haskell @ Keera Studios</h2>
-                 </section>
+                </section>
+                <section>
                  <section>
                    <a href="https://github.com/keera-studios/keera-hails/tree/master/keera-hails-reactivevalues">Reactive Values</a>
                    <p>F; RP</p>
@@ -286,6 +316,7 @@ main = reactimate sense render ballAroundMousePos
                         <li>Wiimote: Yes (35 locs) </li>
                         <li>Kinect: Yes (80 locs, including img recog)</li>
                         <li>Android: Yes (20 locs)
+                        <li>iOS: Coming
                         <li><p>Performance: Android, 60FPS (screen refresh rate); Desktop, over 700 FPS</p>
                         <li>Total: 1K locs; simple version on <a href="http://github.com/ivanperez-keera/haskanoid">http://github.com/ivanperez-keera/haskanoid</a></li>
                         <li>Runs on  browser too: <a href="http://ivanperez-keera.github.io/haskanoid/haskanoid.jsexe/index.html">http://ivanperez-keera.github.io/haskanoid/haskanoid.jsexe/index.html</a></li>
